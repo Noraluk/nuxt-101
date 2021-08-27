@@ -1,38 +1,23 @@
 <template>
-  <v-app >
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-      flat
-      color="#212529"
-    >
-
-    <v-container>
-      <v-row no-gutters>
-        <v-col>
-          <v-icon color="grey">fa-carrot</v-icon>
-        </v-col>
-            <v-col
-              v-for="n in menus.length"
-              :key="n"
-              class="menu"
-            >
-            <NuxtLink class="menu" to="/">{{menus[n-1]}}</NuxtLink>
-            </v-col>
-          </v-row>
-    </v-container>
-
+  <v-app>
+    <v-app-bar :clipped-left="clipped" fixed app flat color="#212529">
+      <v-container>
+        <v-row no-gutters>
+          <v-col>
+            <v-icon color="grey">fa-carrot</v-icon>
+          </v-col>
+          <v-col v-for="n in menus.length" :key="n" class="menu">
+            <NuxtLink class="menu" to="/">{{ menus[n - 1] }}</NuxtLink>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-app-bar>
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -40,20 +25,28 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
-      menus:['Tour','Product','Features','Enterprise','Support','Pricing','Cart']
-    }
-  }
-}
+      menus: [
+        "Tour",
+        "Product",
+        "Features",
+        "Enterprise",
+        "Support",
+        "Pricing",
+        "Cart",
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
 .v-application {
-  background-color:white;
+  background-color: white;
 }
 
 .col {
