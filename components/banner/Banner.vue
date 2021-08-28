@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-containner class="banner">
+    <v-container fluid class="banner">
       <div class="col-md-5 mx-auto div-inside">
         <p class="title-banner">Punny headline</p>
         <p class="body-banner">
@@ -11,7 +11,7 @@
       </div>
       <div class="product-device" />
       <div class="product-device product-device-2" />
-    </v-containner>
+    </v-container>
   </div>
 </template>
 
