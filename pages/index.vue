@@ -1,3 +1,6 @@
 <template>
-  <Banner />
+  <div>
+    <Banner />
+    <Cards />
+  </div>
 </template>
