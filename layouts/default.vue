@@ -4,9 +4,7 @@
     <v-main>
       <Nuxt />
     </v-main>
-    <v-footer app>
-      <span>&copy; 2017-2021</span>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
