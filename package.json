@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "docker-compose -f docker-compose.dev.yml up",
+    "dev":"nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "docker-up": "docker-compose -f docker-compose.dev.yml up",
+    "docker-buildup": "docker-compose -f docker-compose.dev.yml up --build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",

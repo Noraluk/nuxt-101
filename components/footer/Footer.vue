@@ -95,4 +95,8 @@
   color: #6c757d;
   font-size: 20px;
 }
+
+ul {
+  list-style-type: none;
+}
 </style>
