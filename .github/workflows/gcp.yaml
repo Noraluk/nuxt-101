@@ -1,0 +1,36 @@
+name: Docker
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build_and_push_to_gcp_and_deploy_to_cloud_run:
+    runs-on: ubuntu-latest
+
+    container:
+      image: google/cloud-sdk:latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Check commit sha ...
+      run: echo ${{ github.sha }}
+
+    - name: Build the Docker image
+      run: docker build -f Dockerfile.prod -t gcr.io/nuxt-101/nuxt .
+
+    - name: Authenticate into Google Cloud Platform
+      run: gcloud auth activate-service-account kanoon@nuxt-101.iam.gserviceaccount.com --key-file=key.json
+
+    - name: Configure Docker to use Google Cloud Platform
+      run: gcloud auth configure-docker
+
+    - name: Push image to Google Cloud Container Registry
+      run: docker push gcr.io/nuxt-101/nuxt:latest
+
+    - name: Deploy to Cloud Run
+      run: gcloud run deploy nuxt --image gcr.io/nuxt-101/nuxt:latest --project nuxt-101 --region asia-southeast1 --platform managed
